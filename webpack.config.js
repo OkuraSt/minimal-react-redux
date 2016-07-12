@@ -1,3 +1,8 @@
+/*
+* el archivo de configracion de webpack exporta un objeto con la
+ * configuracion. Defino la  entrada y la salida.
+ *
+* */
 var path = require('path');
 
 module.exports = {
@@ -21,6 +26,6 @@ module.exports = {
     },
     resolve: {
         root: path.resolve('./app'),
-        extenstions: ['', '.js']
+        extenstitons: ['', '.js']
     }
 }
