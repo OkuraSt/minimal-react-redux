@@ -1,9 +1,9 @@
+/*
+* Componente que se renderiza al llegar a la ruta /users.
+* La declaracion de este componente es funcional , pero equivalente a la del
+* compoente <Home>
+* */
 import React from 'react';
 
-export default React.createClass({
-    render: function() {
-        return (
-            <h1>App: Users</h1>
-        )
-    }
-});
+const Users = (props) => <h1>App: Users</h1>;
+export default Users;
