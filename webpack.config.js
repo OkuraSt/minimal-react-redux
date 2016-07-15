@@ -1,8 +1,8 @@
 /*
-* el archivo de configracion de webpack exporta un objeto con la
+ * el archivo de configracion de webpack exporta un objeto con la
  * configuracion. Defino la  entrada y la salida.
  *
-* */
+ * */
 var path = require('path');
 
 module.exports = {
@@ -19,7 +19,11 @@ module.exports = {
                 test: /\.jsx?$/,
                 exclude: /(node_modules|bower_components)/,
                 query: {
-                    presets: ['react', 'es2015', 'stage-2']
+                    plugins: [
+                        "transform-runtime",
+                        "transform-decorators-legacy"
+                    ],
+                    presets: ['react', 'es2015', 'stage-0']
                 }
             }
         ]
