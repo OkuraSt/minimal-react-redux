@@ -1,34 +1,32 @@
 /*
-* Dependencias declaradas:
-* React para crear componentes
-* ReactDom para renderizar en un nodo del Dom
-* Objetos para manejar el ruteo.
-* */
+ * Dependencias agregadas:
+ * Provider de react-redux para conectar el store con los componentes react
+ *
+ * */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, browserHistory } from 'react-router';
+import {Router, Route, browserHistory} from 'react-router';
+import {Provider} from 'react-redux';
+import store from 'store';
 
 // Layouts
-// Componente principal de layout de la aplicacion
 import App from 'layouts/app';
 
 // Components
-// Componentes para rutas de Home y Users
 import Home from 'ui/home';
 import Users from 'ui/users';
 
 /*
-* La funcion render de ReactDOm nos permite renderizar nuestros componentes,
-* en un elemento especifico del DOM.
-* Recordar que <Router> tambien es un componente y en este se especifican las rutas 
-* y el componente hijo que se debe renderizar.
-* Ejemplo: path="/users" component={Users}
-* */
+ * Se agrega el componente Provider como padre del router
+ * y como prop se le envia el store
+ * */
 ReactDOM.render((
-    <Router history={browserHistory}>
-        <Route component={App}>
-            <Route path="/" component={Home} />
-            <Route path="/users" component={Users} />
-        </Route>
-    </Router>
+    <Provider store={store}>
+        <Router history={browserHistory}>
+            <Route component={App}>
+                <Route path="/" component={Home}/>
+                <Route path="/users" component={Users}/>
+            </Route>
+        </Router>
+    </Provider>
 ), document.getElementById('root'));
